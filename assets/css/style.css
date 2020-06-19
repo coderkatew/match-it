@@ -1,8 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fredericka+the+Great&family=Londrina+Shadow&family=Monofett&family=Press+Start+2P&family=Ranchers&family=Wendy+One&display=swap');
+
+/*----font-family: 'Bungee Inline', cursive;
+font-family: 'Bungee Shade', cursive;
+font-family: 'Fredericka the Great', cursive;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Ranchers', cursive;
+font-family: 'Wendy One', sans-serif;-------*/
 
 
+/*-------------- Nav -----------------*/
 
+.navbar {
+    width:100%;
+}
 
+.navbar p{
+    font-family: Bungee Inline;
+    font-size:40px;
+    color:yellow;
+}
 
+.nav-item, .nav-link {
+    color:aqua;
+}
+
+.mobile-nav {
+    font-size: 140%;
+    max-width: 100%;
+    text-align: center;
+    opacity: 0.6;
+}
+.mobile-nav i {
+    padding: 0 18px 0 18px;
+}
+
+#mobile-nav {
+    display: none;
+}
+
+/*-------------- Global -----------------*/
+
+body {
+    background-color: black;
+    height:100vh;
+    
+}
+
+/*-------------- Intro -----------------*/
+
+#start-game {
+    width:100%;
+    display:inline-block;
+    font-family: Press Start 2P;
+    margin-top: 100px;
+}
 
 
 /*-------------- Footer -------------*/
