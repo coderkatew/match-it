@@ -48,7 +48,33 @@ body {
 
 /*-------------- Intro -----------------*/
 
+.overlay-text {
+  display: none;
+  position: fixed;
+  background-color:black;
+  font-family: Bungee Inline;
+  font-size:350%;
+  color:yellow;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
 
+}
+
+.overlay-small {
+    color:aqua;
+    font-family: 'Press Start 2P', cursive;
+    font-size:70%;
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+}
 
 /*-------------- Footer -------------*/
 
