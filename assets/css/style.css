@@ -7,6 +7,9 @@ font-family: 'Press Start 2P', cursive;
 font-family: 'Ranchers', cursive;
 font-family: 'Wendy One', sans-serif;-------*/
 
+* {
+  box-sizing: border-box;
+}
 
 /*-------------- Nav -----------------*/
 
@@ -42,7 +45,9 @@ font-family: 'Wendy One', sans-serif;-------*/
 
 body {
     background-color: black;
-    height:100vh;
+    margin:0;
+    height:100%;
+    Width:100%;
     
 }
 
@@ -75,6 +80,69 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+/*-------------- Gameboard -----------------*/
+
+.game-info {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 100px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.time-turns {
+  font-family: 'Press Start 2P';
+  color: pink;
+}
+
+/*-------------- Cards -----------------*/
+
+.card {
+    position:relative;
+    display:flex;
+    height: 100%;
+    width:100%;
+    transition: transform 300ms ease-in-out;
+}
+
+.card-back {
+    transform: rotateY(0);
+}
+
+.card.visible .card-back {
+    transform: rotateY(180deg);
+}
+
+.card.visible .card-picture {
+    transform: rotateY(0);
+}
+
+.card-picture {
+    display:flex;
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius:2px;
+    transform: rotateY(180deg);
+}
+
+.card-img, .card-back {
+    max-width:100px; /*--this can affect grid size--*/
+    max-height:100px;
+}
+
 
 /*-------------- Footer -------------*/
 
