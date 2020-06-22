@@ -53,6 +53,7 @@ body {
 
 /*-------------- Intro -----------------*/
 
+
 .overlay-text {
   display: none;
   position: fixed;
@@ -70,7 +71,10 @@ body {
 
 }
 
-.overlay-small {
+
+
+
+.enter-name.visible {
     color:aqua;
     font-family: 'Press Start 2P', cursive;
     font-size:70%;
