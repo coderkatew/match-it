@@ -29,26 +29,24 @@
     </nav>
 </head>
 <body>
-    <div class="overlay-text visible">
+    <div id="playerPanel" class="d-none">
         Match It
-    <!--<form id="username">
-    <label for="name" ><span class="enter-name visible">Enter your name:</span></label>
-    <input type="text" id="name" name="name"><br><br>
-    <input type="submit" id="submit" value="Submit" onclick="closeForm()">
-    </form>-->
+    <form id="playerForm">
+    <label for="playerName" ><span class="enter-name">Enter player name:</span></label>
+    <input type="text" id="playerName" name="playerName" required>
+    <input type="submit" id="submit" value="Start Game!">
+    </form>
+    <div id="scores"></div>
     </div>
    
 
-    <div id="main-gameboard" class="game-board">
+    <div id="main-gameboard" class="game-board d-none">
         <div class="game-info">
             <div class="time-turns">
                 Time <span id="timer">0</span>
             </div>
             <div class="time-turns">
                 Turns <span id="turns">0</span>
-            </div>
-            <div class="time-turns">
-                Matches <span id="matches">0</span>
             </div>
         </div>
 
