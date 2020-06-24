@@ -10,20 +10,14 @@ const cardDeck = [
 ];
 const allCards = cardDeck.concat(cardDeck);
 
-/*-------- Timer ------*/
-
-let time = setInterval(startCountdown, 1000);
-
-function startCountdown() {
-  var d = new Date();
-  document.getElementById("timer").innerHTML = d.toLocaleTimeString();
-}
-
 class BoardGame {
-  constructor() {
+  constructor(totalTime) {
     this.matchedCards = [];
     this.totalTurns = 0;
+    this.totalTime = totalTime; 
+    this.timeLeft = totalTime; 
     this.turns = document.getElementById("turns");
+    this.timer = document.getElementById("time-left");
     this.configuration = null;
     this.playerPanel = document.getElementById("playerPanel");
     this.boardPanel = document.getElementById("main-gameboard");
@@ -88,6 +82,7 @@ class BoardGame {
     console.log(event);
   }
 
+
   buildCards() {
     const addCard = document.getElementById("main-gameboard");
 
@@ -120,26 +115,43 @@ class BoardGame {
   beginGame() {
     this.checkCard = null;
     this.totalTurns = 0;
+    this.timeLeft = this.totalTime;
     this.allCards = [];
     this.cardDeck = [];
     this.matchedCards = [];
     this.busy = true;
-    this.buildCards();
-    this.shuffleDeck();
     setTimeout(() => {
       this.countDown = this.startCountDown();
       this.busy = false;
-    }, 1000);
+    }, 700);
+    this.hideCard();
     this.turns.innerText = this.totalTurns;
+    this.timer.innerText = this.timeLeft;
     this.showBoardPanel();
+    this.buildCards();
+    this.shuffleDeck();
   }
 
   startCountDown() {
     return setInterval(() => {
-      this.timeRemaining--;
-      this.timer.innerText = this.timeRemaining;
+      this.timeLeft--;
+      this.timer.innerText = this.timeLeft;
+      if (this.timeLeft === 0)
+        this.gameOver();
     }, 1000);
   }
+
+  gameOver() {
+      clearInterval(this.countDown);
+      document.getElementById('game-over').classList.add('visible');
+      //Add results from local storage
+    }
+
+  gameWin() {
+        clearInterval(this.countDown);
+        document.getElementById('game-win').classList.add('visible');
+        //Add results from local storage
+    }
 
   hideCard() {
     this.allCards.forEach((card) => {
@@ -174,10 +186,10 @@ class BoardGame {
   cardMatcher(card1, card2) {
     this.matchedCards.push(card1);
     this.matchedCards.push(card2);
-    this.hideCard(card1);
-    this.hideCard(card2);
+    card1.classList.add("invisible");
+    card2.classList.add("invisible");
     if (this.matchedCards.length === this.allCards.length)
-      console.log("END OF GAME");
+      this.gameWin();
   }
 
   notAMatch(card1, card2) {
@@ -194,12 +206,11 @@ class BoardGame {
   }
   
 
-  shuffleDeck() {
+  shuffleDeck(card) {
     for (let i = this.cardDeck.length - 1; i > 0; i--) {
       let randomIndex = Math.floor(Math.random() * (i + 1));
-      this.cardDeck[randomIndex].style.order = i;
-      this.cardDeck[1].style.order = randomIndex;
-      console.log("SHUFFLE");
+      cardDeck[randomIndex].style.order = i;
+      cardDeck[1].style.order = randomIndex;
     }
   }
 
@@ -210,7 +221,7 @@ class BoardGame {
   }
 }
 
-const game = new BoardGame();
+const game = new BoardGame(120);
 game.start();
 
 

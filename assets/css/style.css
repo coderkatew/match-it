@@ -147,6 +147,20 @@ body {
     border: 2px solid yellow;
 }
 
+/*------------ Feedback Screens -----------*/
+
+.feedback-overlay {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+  background-color:black;
+  font-family: Bungee Inline;
+  font-size:350%;
+  color:yellow;
+}
+
 
 /*-------------- Footer -------------*/
 
