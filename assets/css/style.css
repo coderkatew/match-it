@@ -54,16 +54,17 @@ body {
 /*-------------- Start Game Form -----------------*/
 
 #playerPanel {
-  display: block;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
+  position: fixed;
+  margin: auto;
+  padding:10%;
+  text-align: center;
+  justify-content:center;
   z-index: 1100;
   background-color:black;
   font-family: Bungee Inline;
   font-size:350%;
   color:yellow;
-  top: 300px;
 }
 
 .enter-name {
