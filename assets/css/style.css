@@ -23,6 +23,10 @@ font-family: 'Wendy One', sans-serif;-------*/
   color: yellow;
 }
 
+.nav-item {
+    height:90%;
+}
+
 .nav-item,
 .nav-link {
   color: aqua;

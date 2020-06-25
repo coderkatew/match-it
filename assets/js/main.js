@@ -8,11 +8,11 @@ const cardDeck = [
   "rabbit.jpg",
   "rainbow.jpg",
 ];
-const allCards = cardDeck.concat(cardDeck);
+
 
 class BoardGame {
   constructor(totalTime) {
-    this.matchedCards = [];
+    this.fullDeck = [];
     this.totalTurns = 0;
     this.totalTime = totalTime; 
     this.timeLeft = totalTime; 
@@ -84,6 +84,7 @@ class BoardGame {
 
 
   buildCards() {
+    const allCards = cardDeck.concat(cardDeck);
     const addCard = document.getElementById("main-gameboard");
 
     allCards.forEach((imageName) =>
@@ -116,11 +117,10 @@ class BoardGame {
     this.checkCard = null;
     this.totalTurns = 0;
     this.timeLeft = this.totalTime;
-    this.allCards = [];
-    this.cardDeck = [];
     this.matchedCards = [];
     this.busy = true;
     setTimeout(() => {
+      this.shuffleDeck(this.fullDeck);
       this.countDown = this.startCountDown();
       this.busy = false;
     }, 700);
@@ -129,7 +129,6 @@ class BoardGame {
     this.timer.innerText = this.timeLeft;
     this.showBoardPanel();
     this.buildCards();
-    this.shuffleDeck();
   }
 
   startCountDown() {
@@ -154,7 +153,7 @@ class BoardGame {
     }
 
   hideCard() {
-    this.allCards.forEach((card) => {
+    this.fullDeck.forEach((card) => {
       card.getElementsByClassName("card-back", "card-picture")
       card.classList.remove("visible");
     });
@@ -179,16 +178,17 @@ class BoardGame {
     } else {
       this.notAMatch(card, this.checkCard);
       this.checkCard = null;
-      console.log("NO MATCH");
     }
   }
 
   cardMatcher(card1, card2) {
     this.matchedCards.push(card1);
     this.matchedCards.push(card2);
+    setTimeout(() => {
     card1.classList.add("invisible");
     card2.classList.add("invisible");
-    if (this.matchedCards.length === this.allCards.length)
+    }, 1000);
+    if (this.matchedCards.length === this.fullDeck.length)
       this.gameWin();
   }
 
@@ -198,21 +198,20 @@ class BoardGame {
       card1.classList.remove("visible");
       card2.classList.remove("visible");
       this.busy = false;
-    }, 600);
+    }, 500);
   }
     
   checkCardType(card) {
     return card.getElementsByClassName("card-value")[0].src;
   }
   
-
-  shuffleDeck(card) {
-    for (let i = this.cardDeck.length - 1; i > 0; i--) {
-      let randomIndex = Math.floor(Math.random() * (i + 1));
-      cardDeck[randomIndex].style.order = i;
-      cardDeck[1].style.order = randomIndex;
+  shuffleDeck() {
+        for (let i = this.fullDeck.length - 1; i > 0; i--) {
+            let randomIndex = Math.floor(Math.random() * (i + 1));
+            this.fullDeck[randomIndex].style.order = i; 
+            this.fullDeck[1].style.order = randomIndex;
+        }
     }
-  }
 
   turnCardYes(card) {
     return (
