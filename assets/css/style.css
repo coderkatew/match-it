@@ -13,22 +13,20 @@ font-family: 'Wendy One', sans-serif;-------*/
 
 /*-------------- Nav -----------------*/
 
-.navbar {
-  width: 100%;
-}
-
 .navbar p {
-  font-family: Bungee Inline;
-  font-size: 40px;
+  font-family: 'Bungee Inline';
+  font-size: 300%;
   color: yellow;
 }
 
-.nav-item {
-    height:90%;
+.nav-link p {
+font-family: 'Wendy One', sans-serif;
+  font-size: 200%;
+  color:aqua;
+  margin:18%;
 }
 
-.nav-item,
-.nav-link {
+.nav-item {
   color: aqua;
 }
 
@@ -147,7 +145,7 @@ body {
 
 /*-------------- Player & Score Panel -----------------*/
 
-.scores {
+#scores {
     color:yellow;
     border: 2px solid yellow;
 }
@@ -156,16 +154,21 @@ body {
 
 .feedback-overlay {
   display: none;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
+}
+
+.feedback-overlay.visible {
+  display: inline-block;
+  position: fixed;
+  margin: auto;
+  padding:10%;
+  text-align: center;
+  justify-content:center;
   z-index: 1100;
   background-color:black;
   font-family: Bungee Inline;
   font-size:350%;
   color:yellow;
 }
-
 
 /*-------------- Footer -------------*/
 
