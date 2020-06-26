@@ -13,19 +13,35 @@
 	<nav class="navbar navbar-expand navbar-bg fixed-top">
 		<div id="desktop-nav" class="desktop-nav">
 			<ul class="navbar-nav mr-auto">
-				<p>Match It</p>
-				<li class="nav-item mr-2">
-					<a class="nav-link" href="#about"><p>About</p></a>
+				<span id="logo" href="index.html">Match It</span>
+                <li class="nav-item mr-2">
+					<a class="nav-link" href="index.html">
+						<p>Play</p>
+					</a>
 				</li>
 				<li class="nav-item mr-2">
-					<a class="nav-link" href="#subscribe"><p>Subscribe</p></a>
+					<a class="nav-link" href="#about">
+						<p>About</p>
+					</a>
+				</li>
+				<li class="nav-item mr-2">
+					<a class="nav-link" href="#subscribe">
+						<p>Subscribe</p>
+					</a>
 				</li>
 			</ul>
 		</div>
 		<div id="mobile-nav" class="mobile-nav">
 			<ul class="navbar-nav mr-auto">
-				<a class="nav-item nav-link" href="#about"><i class="fas fa-gamepad" aria-hidden="true"></i></a>
-				<a class="nav-item nav-link" href="#subscribe"><i class="fas fa-edit" aria-hidden="true"></i></a>
+				<li class="nav-item">
+					<a class="nav-link" href="index.html"><i class="fas fa-gamepad" aria-hidden="true"></i></a>
+                    </li>
+                  <li class="nav-item">
+					<a class="nav-link" href="#about"><i class="fas fa-gamepad" aria-hidden="true"></i></a>  
+                    </li>
+				<li class="nav-item">
+					<a class="nav-item nav-link" href="#subscribe"><i class="fas fa-edit" aria-hidden="true"></i></a>
+				</li>
 			</ul>
 		</div>
 	</nav>
@@ -35,25 +51,23 @@
 	<div id="playerPanel" class="d-none">
 		Match It
 		<form id="playerForm">
-			<label for="playerName"
-          ><span class="enter-name">Enter player name:</span></label>
+			<label for="playerName">
+            <span class="enter-name">Enter player name:</span></label>
 			<input type="text" id="playerName" name="playerName" required />
 			<input type="submit" id="submit" value="Start Game!" />
       </form>
 			<div id="scores"></div>
 	</div>
-	<div id="main-gameboard" class="game-board d-none">
-		<div class="game-info">
-			<div class="time-turns">Time <span id="time-left"></span></div>
-			<div class="time-turns">Turns <span id="turns">0</span></div>
-		</div>
+	<div id="gameboard-container">
+		<div id="main-gameboard" class="game-board d-none">
+			<div class="game-info">
+				<div class="time-turns">Time <span id="time-left"></span></div>
+				<div class="time-turns">Turns <span id="turns">0</span></div>
+			</div>
 
-		<!-- Content for cards inserted here -->
+			<!-- Content for cards inserted here -->
+		</div>
 	</div>
-    </div id="about">
-    <h1>Memory Games</h1>
-    <p>
-    </div>
 	<div id="game-over" class="feedback-overlay">
 		Game Over!
 		<span class="overlay-text-small">Click to play again</span>
@@ -62,7 +76,11 @@
 		Congratulations, You've Won!
 		<span class="overlay-text-small">Click to play again</span>
 	</div>
-
+    <div id="about">
+		<h1>Memory Game</h1>
+        <p class="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </p>
+	</div>
 	<footer>
 		<ul class="social-links">
 			<li>

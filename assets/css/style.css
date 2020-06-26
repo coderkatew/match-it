@@ -1,11 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Bungee+Shade&family=Fredericka+the+Great&family=Londrina+Shadow&family=Monofett&family=Press+Start+2P&family=Ranchers&family=Wendy+One&display=swap");
-
-/*----font-family: 'Bungee Inline', cursive;
-font-family: 'Bungee Shade', cursive;
-font-family: 'Fredericka the Great', cursive;
-font-family: 'Press Start 2P', cursive;
-font-family: 'Ranchers', cursive;
-font-family: 'Wendy One', sans-serif;-------*/
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Press+Start+2P&family=Wendy+One&family=Lato&display=swap");
 
 * {
   box-sizing: border-box;
@@ -13,10 +6,12 @@ font-family: 'Wendy One', sans-serif;-------*/
 
 /*-------------- Nav -----------------*/
 
-.navbar p {
+.navbar {
   font-family: 'Bungee Inline';
   font-size: 300%;
   color: yellow;
+  background-color:black;
+  display:block;
 }
 
 .nav-link p {
@@ -49,14 +44,12 @@ font-family: 'Wendy One', sans-serif;
 body {
   background-color: black;
   margin: 0;
-  height: 100%;
-  width: 100%;
 }
 
 /*-------------- Start Game Form -----------------*/
 
 #playerPanel {
-  display: inline-block;
+  display: block;
   position: fixed;
   margin: auto;
   padding:10%;
@@ -64,7 +57,7 @@ body {
   justify-content:center;
   z-index: 1100;
   background-color:black;
-  font-family: Bungee Inline;
+  font-family: 'Bungee Inline';
   font-size:350%;
   color:yellow;
 }
@@ -82,6 +75,10 @@ body {
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
+}
+
+.game-board {
+  display: block;
 }
 
 .game-board {
@@ -141,12 +138,37 @@ body {
   max-width: 100px; /*--this can affect grid size--*/
   max-height: 100px;
 }
+/*-------------- About Section -----------------*/
+
+#about {
+    display:block;
+    width:100%;
+    text-align: center;
+    padding: 10%;
+}
+
+.about-text {
+    color:white;
+    font-size:120%;
+    font-family:'Lato', sans-serif;  
+    padding:2%;
+}
+
+h1 {
+ color:purple;
+ font-family: 'Wendy One', sans-serif;
+ margin:2px;
+
+}
+
+
 
 
 /*-------------- Player & Score Panel -----------------*/
 
 #scores {
-    color:yellow;
+    color: black;
+    background-color:yellow;
     border: 2px solid yellow;
 }
 
@@ -161,7 +183,7 @@ body {
   justify-content:center;
   z-index: 2500;
   background-color:black;
-  font-family: Bungee Inline;
+  font-family: 'Bungee Inline';
   font-size:350%;
   color:yellow;
 }

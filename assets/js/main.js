@@ -69,7 +69,7 @@ class BoardGame {
         let list = document.createElement("ul");
         this.configuration.scores.forEach((score, index) => {
             let li = document.createElement("li");
-            li.textContent = `<span>${score.playeName}</span><span>${score.flips}</span><span>${score.time}</span>`;
+            li.textContent = `<span>${score.playerName}</span><span>${score.flips}</span><span>${score.time}</span>`;
             list.appendChild(li);
         });
         scoresContainer.appendChild(list);
@@ -146,14 +146,14 @@ class BoardGame {
     gameOver() {
         clearInterval(this.countDown);
         document.getElementById('game-over').classList.add('visible');
-        //Add results from local storage
+        this.showPlayerPanel();
     }
 
     gameWin() {
         clearInterval(this.countDown);
         document.getElementById('game-win').classList.add('visible');
         let finalScore = localStorage.getItem("final-score");
-        scores.innerText = this.totalTurns;
+        this.scores.innerText = this.totalTurns;
         localStorage.setItem("final-score", this.totalTurns);
         //check this
          this.showPlayerPanel();
@@ -161,7 +161,6 @@ class BoardGame {
 
     hideCard() {
         this.fullDeck.forEach((card) => {
-            card.getElementsByClassName("card-back", "card-picture");
             card.classList.remove("visible");
         });
     }
@@ -227,7 +226,7 @@ class BoardGame {
     }
 }
 
-const game = new BoardGame(120);
+const game = new BoardGame(20);
 game.start();
 
 
