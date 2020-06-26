@@ -15,7 +15,7 @@
 }
 
 .nav-link p {
-font-family: 'Wendy One', sans-serif;
+  font-family: 'Wendy One', sans-serif;
   font-size: 200%;
   color:aqua;
   margin:18%;
@@ -60,6 +60,7 @@ body {
   font-family: 'Bungee Inline';
   font-size:350%;
   color:yellow;
+  height:100%
 }
 
 .enter-name {
@@ -161,15 +162,41 @@ h1 {
 
 }
 
+/*-------------- Subscribe to Newsletter -----------------*/
 
+#subscribe {
+    display:block;
+    width:100%;
+    text-align: center;
+    padding: 10%;
+    font-family:'Lato', sans-serif;  
+    font-size:120%;
+}
 
+#email-text {
+    padding:10%;
+    margin:10% 0% 10% 0%;
+    font-size:120%;
+}
+
+#email-subscribe {
+     font-family: 'Bungee Inline';
+}
+
+#enter-email {
+    padding:10%;
+    color:aqua;
+    font-family: 'Press Start 2P', cursive;
+    font-size:70%;
+}
 
 /*-------------- Player & Score Panel -----------------*/
 
 #scores {
     color: black;
-    background-color:yellow;
     border: 2px solid yellow;
+    width:100%;
+    display:block;
 }
 
 /*------------ Feedback Screens -----------*/
@@ -177,6 +204,7 @@ h1 {
 .feedback-overlay {
   display: none;
   position: fixed;
+  width:100%;
   margin: auto;
   padding:10%;
   text-align: center;

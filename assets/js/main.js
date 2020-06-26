@@ -9,10 +9,6 @@ const cardDeck = [
     "rainbow.jpg",
 ];
 
-let finalScore = document.getElementById('final-score');
-
-
-
 class BoardGame {
     constructor(totalTime) {
         this.fullDeck = [];
@@ -132,6 +128,18 @@ class BoardGame {
         this.turns.innerText = this.totalTurns;
         this.showBoardPanel();
         this.buildCards();
+        this.subscribeButton();
+    }
+
+subscribeButton() {
+        document.getElementById("email-subscribe").addEventListener("submit", function(){
+        let button = document.getElementById('subscribe-submit');
+        button.innerText = 'Success!';
+        button.disabled = true;
+        function handleForm(event) {event.preventDefault(); } 
+        button.addEventListener('submit', handleForm);
+        });
+        //need to fix this
     }
 
     startCountDown() {
@@ -147,16 +155,12 @@ class BoardGame {
         clearInterval(this.countDown);
         document.getElementById('game-over').classList.add('visible');
         this.showPlayerPanel();
-        //need to clear cards 
+        //need to clear cards and hide form when overlay is displayed
     }
 
     gameWin() {
         clearInterval(this.countDown);
         document.getElementById('game-win').classList.add('visible');
-        let finalScore = localStorage.getItem("final-score");
-        this.scores.innerText = this.totalTurns;
-        localStorage.setItem("final-score", this.totalTurns);
-        //check this
          this.showPlayerPanel();
     }
 
@@ -227,8 +231,10 @@ class BoardGame {
     }
 }
 
-const game = new BoardGame(20);
+const game = new BoardGame(120);
 game.start();
+
+
 
 
 /*------ BUBBLE SORT
