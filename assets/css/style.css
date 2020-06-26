@@ -154,16 +154,12 @@ body {
 
 .feedback-overlay {
   display: none;
-}
-
-.feedback-overlay.visible {
-  display: inline-block;
   position: fixed;
   margin: auto;
   padding:10%;
   text-align: center;
   justify-content:center;
-  z-index: 1100;
+  z-index: 2500;
   background-color:black;
   font-family: Bungee Inline;
   font-size:350%;

@@ -128,8 +128,8 @@ class BoardGame {
             this.busy = false;
         }, 700);
         this.hideCard();
-        this.turns.innerText = this.totalTurns;
         this.timer.innerText = this.timeLeft;
+        this.turns.innerText = this.totalTurns;
         this.showBoardPanel();
         this.buildCards();
     }
@@ -156,11 +156,12 @@ class BoardGame {
         scores.innerText = this.totalTurns;
         localStorage.setItem("final-score", this.totalTurns);
         //check this
+         this.showPlayerPanel();
     }
 
     hideCard() {
         this.fullDeck.forEach((card) => {
-            card.getElementsByClassName("card-back", "card-picture")
+            card.getElementsByClassName("card-back", "card-picture");
             card.classList.remove("visible");
         });
     }
@@ -193,8 +194,8 @@ class BoardGame {
         setTimeout(() => {
             card1.classList.add("invisible");
             card2.classList.add("invisible");
-        }, 1000);
-        if (this.matchedCards.length === 16)
+        }, 100);
+        if (this.matchedCards.length === this.fullDeck.length)
             this.gameWin();
     }
 
