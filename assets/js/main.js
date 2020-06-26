@@ -147,6 +147,7 @@ class BoardGame {
         clearInterval(this.countDown);
         document.getElementById('game-over').classList.add('visible');
         this.showPlayerPanel();
+        //need to clear cards 
     }
 
     gameWin() {
@@ -161,7 +162,7 @@ class BoardGame {
 
     hideCard() {
         this.fullDeck.forEach((card) => {
-            card.classList.remove("visible");
+            card.classList.remove('visible');
         });
     }
 
@@ -169,7 +170,7 @@ class BoardGame {
         if (this.turnCardYes(card)) {
             this.totalTurns++;
             this.turns.innerText = this.totalTurns;
-            card.classList.add("visible");
+            card.classList.add('visible');
             if (this.checkCard) {
                 this.checkForMatch(card);
             } else {
