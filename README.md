@@ -8,7 +8,9 @@ View the live site [here](https://coderkatew.github.io/match-it/).
 
 # Project Outline
 
-3. [UX](#ux)
+2. [UX](#ux)
+
+3. [Features](#features)
 
 4. [Deployment](#deployment)
 
@@ -43,6 +45,45 @@ View the live site [here](https://coderkatew.github.io/match-it/).
 The desktop and mobile wireframes for this project are located in the 'wireframe' folder:
 * [Match It Wireframe](wireframe/match-it.pdf)
 <br><br>
+
+## Features
+<br><br>
+
+## Technologies Used
+The following languages and frameworks were used to build this project:
+
+**HTML** -
+This project uses HTML to structure the pages and website.
+
+**CSS** -
+This project uses CSS to style the game and page.
+
+**Google Fonts** -
+This project uses Google Fonts to style fonts throughout the game.
+
+**Javascript** -
+This project uses Javascript to create and control dynamic content in the game.
+
+**Gitpod IDE** -
+Gitpod was used as an IDE to build this project.
+https://www.gitpod.io/
+
+**GitHub and GitHub Pages** -
+This project is stored on GitHub and has been deployed to GitHub Pages. 
+https://github.com/
+
+**Bootstrap** -
+The project uses Bootstrap to improve navigation on the site.
+https://getbootstrap.com/
+
+**Font Awesome** -
+The project uses Font Awesome to present icons throughout the site.
+https://fontawesome.com/
+<br>
+
+<br><br><br>
+
+
 
 ## Deployment
 This project was developed in GitPod IDE, committed to git and pushed to GitHub.
