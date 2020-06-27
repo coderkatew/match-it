@@ -1,7 +1,9 @@
 <img src="assets/images/logo.png" style="margin: 0;">
 
 # Match It
-View the live site [here](https://coderkatew.github.io/match-it/).
+[Play Match It here!](https://coderkatew.github.io/match-it/)<br></br>
+Match It is a card matching game for improving memory skills. Players can race against the countdown timer and keep track of their scores to see how well their memory skills are improving. 
+The game is short and mobile-friendly so it's ideal for playing on your commute or for short brain training sessions during the day. This game would be the first in a range of memory games and games for language learning.
 
 
 <br>
@@ -48,6 +50,31 @@ The desktop and mobile wireframes for this project are located in the 'wireframe
 
 ## Features
 <br><br>
+
+### Existing Features
+**Start Game Screen** - This is the first screen presented to the user. The user is prompted (with onscreen text instructions) to enter their name and then click the Start Game button to start the game.
+
+**Navbar** - There are two version of the navbar (one for desktop and one for mobile) that were created using Bootstrap. The navigation panel allows users to jump quickly to specific sections on the page.
+
+**Main Gameboard** - The gameboard displays 16 cards (with the backs of the cards visible to the user). The game timer on the top left of the gameboard counts down from 120 seconds and the 'Turns' counter increases by +1 each time the user clicks on a card. When the user clicks on a card, the card turns and the picture side of the card is presented.
+
+**About Section** - The about section is text only and includes some information on the benefits of playing memory games.
+
+**Subscribe Section** - This is a simple form for the user to submit their email address in order to subscribe to emails about new games. The form on the site is not currently set up to post the details submitted but I would like to include this in the next phase of the project.
+
+**Feedback screen** - A feedback screen is shown to the user at the end of the game (when they've either matched all pairs or the countdown has finished). They are presented with their final score and the option to play again.
+<br><br>
+
+## Features Left to Implement
+**Live Play** - I'd like to add functionality to allow users to interact and compete with friends or other players with features like a real-time scoreboard and the option to send invites and challenges to other players.
+
+**Variation of Themes**  - The current theme of the site is geared more towards children than adults, so I'd like create multiple themes so that users can select a theme when they first arrive on the site and their preference would be saved for the next time they visit. I'd also like to add customizable user profiles to give users a more personalized experience.
+
+**Audio and Text Versions** - I'd like to incorporate different media such as audio, text and sound effects into the cards so that the game template could be repurposed for language games. For example, the user selects Card1 which is an audio card with a spoked word or sound effect and has to match it with a text or picture card.
+
+**More Levels of Difficulty** - I'd like to give users the option to adjust the length of time and/or number or cards for a game (or simply choose different levels) so that they can increase the difficulty level as their memory skills improve, or make it easier if they are finding it too difficult.
+<br><br>
+
 
 ## Technologies Used
 The following languages and frameworks were used to build this project:
