@@ -85,6 +85,7 @@ class BoardGame {
     buildCards() {
         const allCards = cardDeck.concat(cardDeck);
         const addCard = document.getElementById("main-gameboard");
+        //addCard.innerHTML = ""; removes cards but need to keep timer and turn counts
 
         allCards.forEach((imageName) =>
             addCard.insertAdjacentHTML(
@@ -103,7 +104,7 @@ class BoardGame {
         );
 
         let cards = Array.from(document.getElementsByClassName("card"));
-
+        
         cards.forEach((card) => {
             card.addEventListener("click", () => {
                 this.turnCard(card);
@@ -132,12 +133,10 @@ class BoardGame {
     }
 
 subscribeButton() {
-        document.getElementById("email-subscribe").addEventListener("submit", function(){
+        document.getElementById("email-subscribe").addEventListener("click", function(){
         let button = document.getElementById('subscribe-submit');
-        button.innerText = 'Success!';
+        button.value = 'Success!';
         button.disabled = true;
-        function handleForm(event) {event.preventDefault(); } 
-        button.addEventListener('submit', handleForm);
         });
         //need to fix this
     }
@@ -153,8 +152,10 @@ subscribeButton() {
 
     gameOver() {
         clearInterval(this.countDown);
+        
         document.getElementById('game-over').classList.add('visible');
         this.showPlayerPanel();
+       
         //need to clear cards and hide form when overlay is displayed
     }
 
@@ -199,6 +200,7 @@ subscribeButton() {
             card1.classList.add("invisible");
             card2.classList.add("invisible");
         }, 100);
+        this.checkCard = null;
         if (this.matchedCards.length === this.fullDeck.length)
             this.gameWin();
     }
@@ -231,7 +233,7 @@ subscribeButton() {
     }
 }
 
-const game = new BoardGame(120);
+const game = new BoardGame(18);
 game.start();
 
 

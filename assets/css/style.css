@@ -170,6 +170,7 @@ h1 {
     text-align: center;
     padding: 10%;
     font-family:'Lato', sans-serif;  
+    color:white;
     font-size:120%;
 }
 
@@ -177,6 +178,7 @@ h1 {
     padding:10%;
     margin:10% 0% 10% 0%;
     font-size:120%;
+   
 }
 
 #email-subscribe {
