@@ -1,3 +1,5 @@
+/*This array contains the image source links for the cards so that they can be retrieved and inserted into the HTML 
+when the cards are created below*/
 const cardDeck = [
     "castle.jpg",
     "cat.jpg",
@@ -15,8 +17,8 @@ class BoardGame {
         this.totalTurns = 0;
         this.totalTime = totalTime;
         this.timeLeft = totalTime;
-        this.turns = document.getElementById("turns");
-        this.timer = document.getElementById("time-left");
+        this.turns = document.getElementById("turns"); 
+        this.timer = document.getElementById("time-left"); 
         this.configuration = null;
         this.playerPanel = document.getElementById("playerPanel");
         this.boardPanel = document.getElementById("main-gameboard");
@@ -32,7 +34,7 @@ class BoardGame {
         let playerForm = document.getElementById("playerForm");
         playerForm.addEventListener(
             "submit",
-            this.onSubmitPlayerFormHandler.bind(this)
+            this.onSubmitPlayerFormHandler.bind(this) // Returns bound function that will be invoked later
         );
     }
 
@@ -83,7 +85,7 @@ class BoardGame {
 
 
     buildCards() {
-        const allCards = cardDeck.concat(cardDeck);
+        const allCards = cardDeck.concat(cardDeck); // Creates a new array by adding the cardDeck array to itself so there is a duplicate of each image and the cards can be matched.
         const addCard = document.getElementById("main-gameboard");
         //addCard.innerHTML = ""; removes cards but need to keep timer and turn counts
 
@@ -93,11 +95,11 @@ class BoardGame {
                 `<div class="card">
              <div class="card-back all-cards">
             <img src="assets/images/card-back.jpg"
-                class="card-img">
+                class="card-img" alt="Hidden card">
             </div> 
             <div class="card-picture all-cards">
             <img class="card-value card-img"
-                src="assets/images/${imageName}">
+                src="assets/images/${imageName}" alt="Picture card">
             </div>
             </div>`
             )
