@@ -88,7 +88,7 @@ class BoardGame {
         const allCards = cardDeck.concat(cardDeck); // Creates a new array by adding the cardDeck array to itself so there is a duplicate of each image and the cards can be matched.
         const addCard = document.getElementById("main-gameboard");
         //addCard.innerHTML = ""; removes cards but need to keep timer and turn counts
-
+        //insertAdjacentHTML inserts the following HTML for each item in the concatenated allCards array using the appropriate image file
         allCards.forEach((imageName) =>
             addCard.insertAdjacentHTML(
                 "beforeend",
@@ -112,7 +112,7 @@ class BoardGame {
                 this.turnCard(card);
             });
         });
-        this.fullDeck = cards;
+        this.fullDeck = cards; //This new array of HTML cards is used by the game action functions 
     }
 
     beginGame() {
@@ -133,14 +133,13 @@ class BoardGame {
         this.buildCards();
         this.subscribeButton();
     }
-
+//Used button here temporarily rather than input as input caused the page to refresh and the game to restart
 subscribeButton() {
-        document.getElementById("email-subscribe").addEventListener("click", function(){
+        document.getElementById("email-subscribe").addEventListener("click", function(){ 
         let button = document.getElementById('subscribe-submit');
         button.value = 'Success!';
         button.disabled = true;
         });
-        //need to fix this
     }
 
     startCountDown() {

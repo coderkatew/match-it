@@ -10,7 +10,11 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 # Project Outline
 
-2. [UX](#ux)
+1. [Strategy and Scope](#strategy)
+
+2. [Structure and Skeleton](##StructureandSkeleton)
+
+3. [Surface](#surface)
 
 3. [Features](#features)
 
@@ -18,7 +22,11 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 <br><br>
 
-## UX <br><br>
+## UX
+
+## Strategy and Scope
+
+
 ### Who is this website for?
 * People who wish to improve their memory skills
 * People who wish to play a short online game that is easy to use
@@ -42,6 +50,20 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 6. As the game creator and site owner, I want to build my subscriber list so that I can promote new games that I make.
 - There is a form in the Subscribe section for users to submit their email address if they wish to hear about new games. The site owner can use this feature to build out their email list and share the site link publicly to gain new subscribers. Note:The form on the site is not currently set up to post the details submitted but I would like to include this in the next phase of the project.<br><br>
+
+## Structure and Skeleton
+
+### How to Play
+1. Open the [Match It website](https://coderkatew.github.io/match-it/).
+2. Enter a player name and click 'Start Game'.
+* Game screen is displayed.
+3. Click or Tap on cards to find matches.
+* When a pair of cards have been matched, they are no longer displayed in the grid of cards. 
+* Each time a card is clicked, the value of 'Turns' (the turn counter) increases by +1.
+* The countdown timer starts to count down from 120 seconds when the game begins.
+* When the countdown timer has reached 0, or when all cards have been matched, the game feedback screen is displayed.
+* The player can play again to improve their score.
+
 
 ### Wireframes
 The desktop and mobile wireframes for this project are located in the 'wireframe' folder:
@@ -92,30 +114,47 @@ This project uses Google Fonts to style fonts throughout the game.
 This project uses Javascript to create and control dynamic content in the game.
 
 **Gitpod IDE** -
-Gitpod was used as an IDE to build this project.
-https://www.gitpod.io/
+[Gitpod](https://www.gitpod.io/) was used as an IDE to build this project.
 
 **GitHub and GitHub Pages** -
-This project is stored on GitHub and has been deployed to GitHub Pages. 
-https://github.com/
+This project is stored on [GitHub](https://github.com/) and has been deployed to GitHub Pages. 
 
 **Bootstrap** -
-The project uses Bootstrap to improve navigation on the site.
-https://getbootstrap.com/
+The project uses [Bootstrap](https://getbootstrap.com/) to improve navigation on the site.
+
 
 **Font Awesome** -
-The project uses Font Awesome to present icons throughout the site.
-https://fontawesome.com/
+The project uses [Font Awesome](https://fontawesome.com/) to present icons throughout the site.
+
 <br>
 
 <br><br><br>
+
+## Surface
+
+### Game Design
+The look and feel of Match It is loosely inspired by retro video games such as Pac-Man and Sonic the Hedgehog. It has a dark background color theme with bright colors for text and borders for contrast. <br>
+The Google font [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P#about) was created based on 1980s arcade game font styles and [Bungee Inline](https://fonts.google.com/specimen/Bungee+Inline#about) is a chunky statement font used for the Match It logo.<br>
+The website favicon ('M') is taken directly from the game logo so that players develop a familiarity with it and to promote a consistent brand experience that could be built on later when the range of games is extended and the game creator has built up a following.<br>
+Icons are used instead of text labels for the nav bar items in the mobile version of the website so that the menu is a simple as possible.<br>
+The game interface is relatively minimal to limit distractions for the player and focus on the gameboard and cards as it is a time-based game. <br>
+
+<br><br>
+
+
+## Testing
+
+Testing process and results for this project can be found in the [testing.md file](https://github.com/coderkatew/match-it/tree/master/testing/testing.md).
+
+
+<br><br>
 
 
 
 ## Deployment
 This project was developed in GitPod IDE, committed to git and pushed to GitHub.
 
-The following steps were taken to deploy Match it to GitHub Pages from the GitHub repository:‰
+The following steps were taken to deploy Match it to GitHub Pages from the GitHub repository:
 
 * Log in to GitHub.
 * Select coderkatew/match-it from the list of repositories.
@@ -135,3 +174,22 @@ To clone this Match It from GitHub to run it locally:
 * Open the terminal and change the current working directory to the location where you want to store the cloned directory.
 * Using 'git clone', paste the clone URL into the terminal and click the return key.<br>
 This creates a local clone of the project.<br><br>
+
+## Project Credits
+
+### Content
+* About - The text for the 'About' section was adapted from [this article](https://socialworkprocesses.co.uk/3-benefits-playing-memory-games/) on socialworkprocesses.co.uk.
+
+
+### Media
+* All of the images used for the cards in this game were purchased from [iStock by Getty Images](https://www.istockphoto.com/ie)<br><br>
+
+### Acknowledgements
+I learned the key concepts of HTML, CSS and Javascript in the Code Institute course materials and read further material in [Eloquent Javascript](https://eloquentjavascript.net/) and [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript) to support my learning and improve my knowledge of Javascript. <br>
+
+I found information for some specific features used in the game from the following sources:
+*[Inserting HTML to create the game cards](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
+*[Fisher-Yates Shuffle Algorithm to shuffle the cards array](https://medium.com/@qjawe/js-shuffle-cards-or-any-elements-with-the-fisher-yates-shuffle-algorithm-b70750c497d5)
+*[Setting the countdown timer](https://www.w3schools.com/js/js_timing.asp)
+*[Grid layout and properties](https://www.w3schools.com/css/css_grid.asp)<br>
+I used resources like [Stack Overflow](stackoverflow.com) and [W3Schools](w3schools.com) for help with troubleshooting smaller during the project, as well as support from Code Institute tutors and guidance from my mentor.
