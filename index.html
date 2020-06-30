@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="author" content="Kate Walsh" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="HTML,CSS,JavaScript,Code Institute,Milestone2" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/sandstone/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
@@ -11,11 +13,12 @@
 	<link rel="icon" href="assets/images/favicon.png" sizes="16x16" type="image/png">
 	<title>Match It</title>
 </head>
+<body>
 <header>
 	<nav class="navbar navbar-expand navbar-bg fixed-top">
 		<div id="desktop-nav" class="desktop-nav">
 			<ul class="navbar-nav mr-auto">
-				<span id="logo" href="index.html">Match It</span>
+				<li id="logo">Match It</li>
 				<li class="nav-item mr-2">
 					<a class="nav-link" href="index.html">
 						<p>Play</p>
@@ -33,8 +36,8 @@
 				</li>
 			</ul>
 		</div>
-		<!-------The user will see the mobile-nav navbar when they're viewing the website on a mobile device. 
-        Menu options are represented with icons to save space and keep the UI simple.-->
+		<!-- The user will see the mobile-nav navbar when they're viewing the website on a mobile device. 
+        Menu options are represented with icons to save space and keep the UI simple -->
 		<div id="mobile-nav" class="mobile-nav">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
@@ -50,8 +53,6 @@
 		</div>
 	</nav>
 </header>
-
-<body>
 	<div id="playerPanel" class="d-none">
 		Match It
 		<form id="playerForm">
@@ -69,7 +70,7 @@
 				<div class="time-turns">Turns <span id="turns">0</span></div>
 			</div>
 
-			<!-- Content for cards inserted here -->
+			<!-- HTML for cards will be inserted here with insertAdjacentHTML -->
 		</div>
 	</div>
 	<div id="game-over" class="feedback-overlay">

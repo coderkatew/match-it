@@ -2,24 +2,25 @@
 
 * {
   box-sizing: border-box;
-}
-
-/*-------------- Nav -----------------*/
+} /* Includes padding and border in an element's height and width*/
+ 
+ 
+/*----- Navbar Menu -------*/
 
 .navbar {
-  font-family:'Bungee Inline';
+  font-family: 'Bungee Inline';
   font-size: 300%;
   color: yellow;
-  background-color:black;
-  display:block;
-  width:100%;
+  background-color: black;
+  display: block;
+  width: 100%;
 }
 
 .nav-link p {
   font-family: 'Wendy One', sans-serif;
   font-size: 200%;
-  color:aqua;
-  margin:18%;
+  color: aqua;
+  margin: 18%;
 }
 
 .nav-item {
@@ -27,64 +28,60 @@
 }
 
 .mobile-nav {
-  font-size: 140%;
+  font-size: 100%;
   max-width: 100%;
   text-align: center;
   opacity: 0.6;
 }
 .mobile-nav i {
-  padding: 0 18px 0 18px;
+  padding: 0 5px 0 5px;
 }
 
 #mobile-nav {
   display: none;
 }
 
-/*-------------- Global -----------------*/
+/*-------- Global ---------*/
 
 body {
   background-color: black;
   margin: 0;
 }
 
-/*-------------- Start Game Form -----------------*/
+/*------ Start Game Form -----*/
 
 #playerPanel {
   display: block;
   position: fixed;
   margin: auto;
-  padding:10%;
+  padding: 10%;
   text-align: center;
-  justify-content:center;
-  z-index: 1100; /*------ This specifies the stack order to ensure #playerPanel is displayed in front of the rest of the elements on screen------*/
-  background-color:black;
+  justify-content: center;
+  z-index: 1100; /* This specifies the stack order to ensure #playerPanel is displayed in front of the rest of the elements on screen */
+  background-color: black;
   font-family: 'Bungee Inline';
   font-size:350%;
-  color:yellow;
+  color: yellow;
   height:100%
 }
 
-.enter-name {
-    color:aqua;
-    font-family: 'Press Start 2P', cursive;
-    font-size:70%;
+#playerForm {
+    margin-bottom: 2%;
 }
-
+ 
+.enter-name {
+    color: aqua;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 70%;
+    margin-bottom: 2%;
+}
 
 /*-------------- Gameboard -----------------*/
-
-#mobile-logo {
-    display:none;
-}
 
 .game-info {
   grid-column: 1 / -1;
   display: flex;
   justify-content: space-between;
-}
-
-.game-board {
-  display: block;
 }
 
 .game-board {
@@ -97,7 +94,7 @@ body {
 }
 
 .time-turns {
-  font-family: "Press Start 2P";
+  font-family: 'Press Start 2P';
   color: pink;
 }
 
@@ -106,11 +103,12 @@ body {
 .card {
   position: relative;
   display: flex;
-  height: 100%;
-  width: 100%;
+  max-width: 100%; 
+  max-height: 100%;
   transition: transform 300ms ease-in-out;
 }
 
+/* transform specifies the degrees for turning the cards*/
 .card-back {
   transform: rotateY(0);
 }
@@ -139,54 +137,56 @@ body {
   border-radius: 2px;
 }
 
+
+
 .card-img,
 .card-back {
-  max-width: 100px; /*--this can affect grid size--*/
+  max-width: 100px; 
   max-height: 100px;
 }
+
 /*-------------- About Section -----------------*/
 
 #about {
-    display:block;
-    width:100%;
-    text-align: center;
-    padding: 5%;
+    display: block;
+    width: 100%;
+    text-align: center; 
+    padding: 10%;
 }
 
 .about-text {
-    color:white;
-    font-size:120%;
-    font-family:'Lato', sans-serif;  
-    padding:2%;
+    color: white;
+    font-size: 120%;
+    font-family: 'Lato', sans-serif;  
+    padding: 2%;
+    margin: 0;
 }
 
 h1 {
- color:purple;
+ color: purple;
  font-family: 'Wendy One', sans-serif;
- margin:2px;
+ margin: 2px;
 
 }
 
 /*-------------- Subscribe to Newsletter -----------------*/
 
 #subscribe {
-    display:block;
-    width:100%;
+    display: block;
+    width: 100%;
     text-align: center;
     padding: 5%;
-    margin:5%;
-    border: 2px solid white;
-    border-radius:10px;
-    font-family:'Lato', sans-serif;  
-    color:white;
-    font-size:120%;
+    margin: 0 0 5% 0;
+    border-radius: 10px;
+    font-family: 'Lato', sans-serif;  
+    color: white;
+    font-size: 120%;
 }
 
 #email-text {
     padding: 5%;
-    margin: 5%;
-    font-size:120%;
-   
+    margin: 10%;
+    font-size: 120%;
 }
 
 #email-subscribe {
@@ -194,19 +194,34 @@ h1 {
 }
 
 #enter-email {
-    padding:10%;
-    color:aqua;
+    padding: 10%;
+    color: aqua;
     font-family: 'Press Start 2P', cursive;
-    font-size:70%;
+    font-size: 70%;
 }
 
-/*-------------- Player & Score Panel -----------------*/
+/*-------------- Player and Scores Table -----------------*/
 
 #scores {
-    color: black;
+    color: yellow;
     border: 2px solid yellow;
-    width:100%;
-    display:block;
+    width: 100%;
+    display: block;
+    font-size:50%;
+}
+
+#scores table {
+  width: 100%;
+  text-align: center;
+}
+
+#scores table th, td {
+  text-align: center;
+}
+
+#scores table tr.last-game {
+  color: white;
+  border: 2px solid yellow;
 }
 
 /*------------ Feedback Screens -----------*/
@@ -215,15 +230,14 @@ h1 {
   display: none;
   position: fixed;
   width:100%;
-  margin: auto;
   padding:10%;
   text-align: center;
-  justify-content:center;
+  justify-content: center;
   z-index: 2500;
-  background-color:black;
+  background-color: black;
   font-family: 'Bungee Inline';
-  font-size:350%;
-  color:yellow;
+  font-size: 350%;
+  color: yellow;
 }
 
 /*-------------- Footer -------------*/
@@ -231,6 +245,7 @@ h1 {
 footer {
   height: 70px;
   width: 100%;
+  margin: 0;
   background-color: black;
   position: fixed;
   bottom: 0;
@@ -249,7 +264,7 @@ footer {
   font-size: 180%;
   margin-top: 1%;
   padding: 0.5%;
-  color: #ffffff;
+  color: white;
 }
 
 /*--------------- Media Queries --------------*/
@@ -262,8 +277,8 @@ footer {
 
 #mobile-nav {
     display: block;
-    max-height:50px;
-    padding:none;
+    max-height: 50px;
+    padding: 0;
 }
 
 .nav-item {
@@ -273,23 +288,32 @@ footer {
 #playerPanel {
   display: block;
   position: fixed;
-  padding:50% 2% 0 0;
-  font-size:100%;
-  
+  padding: 50% 2% 0 0;
+  font-size: 100%;
 }
 
 #enter-email {
-    padding:5%;
+    padding: 5%;
 }
 
+#email-text {
+    margin: 0;
+}
+
+#subscribe {
+    margin: 0 0 10% 0;
+    padding: 1%;
+    border: none;
+}
 
 .game-board {
   grid-gap: 1.5%;
-  margin: 20% 2% 20% 2%;
+  margin: 20% 0 20% 0;
+  padding: 2%;
 }
 
 .time-turns {
-  padding:1%;
+  padding: 1%;
 }
 
 footer {

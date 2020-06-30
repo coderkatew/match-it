@@ -1,5 +1,7 @@
-/*This array contains the image source links for the cards so that they can be retrieved and inserted into the HTML 
-when the cards are created below*/
+/**
+   * Array with image source links to be retrieved and inserted into the HTML when cards are created
+   */
+
 const cardDeck = [
     "castle.jpg",
     "cat.jpg",
@@ -11,44 +13,80 @@ const cardDeck = [
     "rainbow.jpg",
 ];
 
+const gameId = 'board-game';
+const delayBeforeRemovingCards = 100;
+const maxTopScores = 10;
+const gameTime = 120; // Total time in seconds that the player has to match all of the cards
+
 class BoardGame {
     constructor(totalTime) {
         this.fullDeck = [];
         this.totalTurns = 0;
         this.totalTime = totalTime;
         this.timeLeft = totalTime;
-        this.turns = document.getElementById("turns"); 
-        this.timer = document.getElementById("time-left"); 
+        this.turns = document.getElementById("turns");
+        this.timer = document.getElementById("time-left");
         this.configuration = null;
         this.playerPanel = document.getElementById("playerPanel");
         this.boardPanel = document.getElementById("main-gameboard");
+        this.checkCard = null; // Sets the card as the card to be matched
+        this.addListeners();
     }
 
+    /**
+       * Starts the BoardGame application - it is called when an instance of the class is created
+       */
+
     start() {
-        this.addListeners();
         this.loadConfiguration();
         this.showPlayerPanel();
     }
 
     addListeners() {
         let playerForm = document.getElementById("playerForm");
-        playerForm.addEventListener(
-            "submit",
-            this.onSubmitPlayerFormHandler.bind(this) // Returns bound function that will be invoked later
-        );
+        playerForm.addEventListener("submit", this.onStartGameHandler.bind(this)); // Returns bound function that will be invoked later
     }
 
+    /**
+       * Loads the game configuration from localStorage. If the configuration doesn't exist, a default is created
+       */
+
     loadConfiguration() {
-        this.configuration = localStorage.getItem("board-game");
-        if (!this.configuration) {
-            // Set configuration to the default value
+        this.configuration = JSON.parse(localStorage.getItem(gameId));
+        if (!this.configuration) { // Sets configuration to the default value
             this.configuration = {
                 playerName: "",
                 scores: [],
             };
-        } else {
         }
     }
+
+    /**
+       * Sets the game cards, timer, turn counter and card actions for the game screen
+       */
+
+    startGame() {
+        this.checkCard = null;
+        this.totalTurns = 0;
+        this.timeLeft = this.totalTime;
+        this.matchedCards = []; // Array which will store the matched cards as the game progresses
+        this.busy = true;
+        setTimeout(() => {
+            this.shuffleDeck(this.fullDeck);
+            this.countDown = this.startCountDown();
+            this.busy = false;
+        }, 700);
+        this.hideCards();
+        this.timer.innerText = this.timeLeft;
+        this.turns.innerText = this.totalTurns;
+        this.showBoardPanel();
+        this.appendCards();
+        this.subscribeButton();
+    }
+
+    /**
+       * Loads the player name and score from localStorage
+       */
 
     showPlayerPanel() {
         document.getElementById("playerName").value = this.configuration.playerName;
@@ -62,120 +100,195 @@ class BoardGame {
         this.boardPanel.classList.toggle("d-none", false);
     }
 
+    /**
+     * Renders the score table and appends a table to the scores container. 
+     * If the table already exists, it is removed and created from scratch
+     */
+
     renderScores() {
         let scoresContainer = document.getElementById("scores");
-        let list = document.createElement("ul");
+        if (scoresContainer.firstElementChild) {
+            scoresContainer.firstElementChild.remove();
+        }
+        let table = document.createElement("table");
+        let header = table.createTHead();
+        let headers = header.insertRow(0);
+        headers.innerHTML = `<th class="position">Position</th>
+                            <th class="player-name">Player Name</th>
+                            <th class="flips">Total Turns</th>
+                            <th class="total-time">Total Time</th>`;
+        let tblBody = document.createElement('tbody');
         this.configuration.scores.forEach((score, index) => {
-            let li = document.createElement("li");
-            li.textContent = `<span>${score.playerName}</span><span>${score.flips}</span><span>${score.time}</span>`;
-            list.appendChild(li);
+            let tr = document.createElement("tr");
+            tr.innerHTML = `<td class="position">${index + 1}</td> 
+                            <td class="player-name">${score.playerName}</td>
+                            <td class="flips">${score.flips}</td>
+                            <td class="total-time">${score.totalTime}</td>`;
+            if (score.currentPlayer) {
+                tr.classList.add('last-game');
+            }
+            tblBody.appendChild(tr);
         });
-        scoresContainer.appendChild(list);
+        table.appendChild(tblBody);
+        scoresContainer.appendChild(table);
     }
 
-    onSubmitPlayerFormHandler(event) {
+    /**
+     * Event handler to handle the onsubmit event fired from the playerForm 'Start Game!' button
+     * @param {*} event DOM Event
+     */
+
+    onStartGameHandler(event) {
         event.stopImmediatePropagation();
         event.preventDefault();
-
+        // Assigns the current player's name to the configuration object to start the game
         this.configuration.playerName = event.target[0].value;
-
-        this.beginGame();
-        console.log(event);
+        //Starts the game
+        this.startGame();
     }
 
+    /**
+     * Renders the card element using the image name passed as a parameter
+     * @param {String} imageName 
+     */
 
-    buildCards() {
-        const allCards = cardDeck.concat(cardDeck); // Creates a new array by adding the cardDeck array to itself so there is a duplicate of each image and the cards can be matched.
+    renderCard(imageName) {
+        return `<div class="card">
+                    <div class="card-back all-cards">
+-                        <img class="card-img" src="assets/images/card-back.jpg"  alt="Hidden card">
+-                    </div> 
+-                    <div class="card-picture all-cards">
+-                        <img class="card-value card-img" src="assets/images/${imageName}" alt="Picture card">
+-                    </div>
+-                </div>`;
+    }
+
+    /**
+     * Appends the cards to the gameboard
+     */
+
+    appendCards() {
+        // Creates a new array by adding the cardDeck array to itself so there is a duplicate of each image and cards can be matched
+        const allCards = cardDeck.concat(cardDeck);
+
         const addCard = document.getElementById("main-gameboard");
-        //addCard.innerHTML = ""; removes cards but need to keep timer and turn counts
-        //insertAdjacentHTML inserts the following HTML for each item in the concatenated allCards array using the appropriate image file
-        allCards.forEach((imageName) =>
-            addCard.insertAdjacentHTML(
-                "beforeend",
-                `<div class="card">
-             <div class="card-back all-cards">
-            <img src="assets/images/card-back.jpg"
-                class="card-img" alt="Hidden card">
-            </div> 
-            <div class="card-picture all-cards">
-            <img class="card-value card-img"
-                src="assets/images/${imageName}" alt="Picture card">
-            </div>
-            </div>`
-            )
-        );
+        // insertAdjacentHTML inserts the HTML from the renderCard function for each item in the concatenated allCards array using the appropriate image file
+        allCards.forEach((imageName) => addCard.insertAdjacentHTML("beforeend", this.renderCard(imageName)));
+
 
         let cards = Array.from(document.getElementsByClassName("card"));
-        
+
         cards.forEach((card) => {
             card.addEventListener("click", () => {
                 this.turnCard(card);
             });
         });
-        this.fullDeck = cards; //This new array of HTML cards is used by the game action functions 
+        this.fullDeck = cards; // Declares a new array of HTML cards for the game
     }
 
-    beginGame() {
-        this.checkCard = null;
-        this.totalTurns = 0;
-        this.timeLeft = this.totalTime;
-        this.matchedCards = [];
-        this.busy = true;
-        setTimeout(() => {
-            this.shuffleDeck(this.fullDeck);
-            this.countDown = this.startCountDown();
-            this.busy = false;
-        }, 700);
-        this.hideCard();
-        this.timer.innerText = this.timeLeft;
-        this.turns.innerText = this.totalTurns;
-        this.showBoardPanel();
-        this.buildCards();
-        this.subscribeButton();
+    removeCards() {
+        let cards = Array.from(document.getElementsByClassName("card"));
+        cards.forEach((card) => card.remove());
     }
-//Used button here temporarily rather than input as input caused the page to refresh and the game to restart
-subscribeButton() {
-        document.getElementById("email-subscribe").addEventListener("click", function(){ 
-        let button = document.getElementById('subscribe-submit');
-        button.value = 'Success!';
-        button.disabled = true;
+    
+     
+    subscribeButton() {
+        //Used button here temporarily rather than input as input caused the page to refresh and the game to restart
+        document.getElementById("email-subscribe").addEventListener("click", function () {
+            let button = document.getElementById('subscribe-submit');
+            button.value = 'Success!';
+            button.disabled = true;
         });
-    }
+    } 
 
     startCountDown() {
         return setInterval(() => {
             this.timeLeft--;
             this.timer.innerText = this.timeLeft;
-            if (this.timeLeft === 0)
-                this.gameOver();
+            if (this.timeLeft === 0) {
+                this.gameOver(); //Ends game when countdown reaches 0
+            }
         }, 1000);
     }
 
-    gameOver() {
+    gameFinished() {
         clearInterval(this.countDown);
-        
-        document.getElementById('game-over').classList.add('visible');
+        // Removes remaining cards from the board
+        this.removeCards();
         this.showPlayerPanel();
-       
-        //need to clear cards and hide form when overlay is displayed
+    }
+
+    gameOver() {
+        document.getElementById('game-over').classList.add('visible');
+        this.gameFinished();
     }
 
     gameWin() {
-        clearInterval(this.countDown);
-        document.getElementById('game-win').classList.add('visible');
-         this.showPlayerPanel();
+        this.updateScores();
+        this.gameFinished();
+    }
+    /**
+       * Updates the scores based on the last played game after game has been won
+       */
+    updateScores() {
+        // Disable the previous current played game 
+        let index = this.configuration.scores.findIndex((score) => score.currentPlayer === true);
+        if (index !== -1) {
+            this.configuration.scores[index].currentPlayer = false;
+        }
+
+        // Adds the new score to the scoreboard
+        this.configuration.scores.push({
+            playerName: this.configuration.playerName,
+            flips: this.totalTurns,
+            totalTime: this.totalTime - this.timeLeft,
+            currentPlayer: true
+        });
+
+      /**
+         * Sorts the scores by comparing values to include the new score - the scores on the board will be positioned high to low
+         */ 
+       this.configuration.scores.sort((a, b) => {
+            if (a.flips < b.flips) {
+                return -1;
+            }
+            if (a.flips > b.flips) {
+                return 1;
+            }
+            if (a.totalTime < b.totalTime) {
+                return -1;
+            }
+            if (a.totalTime > b.totalTime) {
+                return 1;
+            }
+            return 0;
+        });
+
+        // Pop removes the last player from the list of top players if there is an overflow
+        if (this.configuration.scores.length > maxTopScores) {
+            this.configuration.scores.pop();
+        }
+
+        // Converts the configuration into a string and updates it in localStorage
+        localStorage.setItem(gameId, JSON.stringify(this.configuration));
     }
 
-    hideCard() {
+    hideCards() {
         this.fullDeck.forEach((card) => {
             card.classList.remove('visible');
         });
     }
-
+    /**
+        * 
+        * @param {Element} card The card element
+        */
     turnCard(card) {
-        if (this.turnCardYes(card)) {
+        if (this.isCardFacedDown(card)) {
+            // Increases the number of turns 
             this.totalTurns++;
+            // Increases the number of turns on screen
             this.turns.innerText = this.totalTurns;
+            // Shows the card
             card.classList.add('visible');
             if (this.checkCard) {
                 this.checkForMatch(card);
@@ -185,25 +298,40 @@ subscribeButton() {
         }
     }
 
+    /**
+     * Checks if the card is a match with the previously selected card
+     * @param {Element} card 
+     */
+
     checkForMatch(card) {
         if (this.checkCardType(card) === this.checkCardType(this.checkCard)) {
             this.cardMatcher(card, this.checkCard);
         } else {
             this.notAMatch(card, this.checkCard);
+            // Clears the card selection
             this.checkCard = null;
         }
     }
 
+    /**
+        * 
+        * @param {*} card1 First card selected
+        * @param {*} card2 Second card selected
+        */
+
     cardMatcher(card1, card2) {
+        // Adds the cards to the matchedCards array to track progress
         this.matchedCards.push(card1);
-        this.matchedCards.push(card2);
+        this.matchedCards.push(card2); 
         setTimeout(() => {
             card1.classList.add("invisible");
             card2.classList.add("invisible");
-        }, 100);
+        }, delayBeforeRemovingCards);
         this.checkCard = null;
-        if (this.matchedCards.length === this.fullDeck.length)
+        // Ends the game when all cards have been matched
+        if (this.matchedCards.length === this.fullDeck.length) {
             this.gameWin();
+        }
     }
 
     notAMatch(card1, card2) {
@@ -219,6 +347,10 @@ subscribeButton() {
         return card.getElementsByClassName("card-value")[0].src;
     }
 
+   /**
+      * Fisher-Yates algorithm shuffles through the card array swapping 
+      * the last element with a random element from the array
+      */  
     shuffleDeck() {
         for (let i = this.fullDeck.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -227,34 +359,13 @@ subscribeButton() {
         }
     }
 
-    turnCardYes(card) {
+    isCardFacedDown(card) {
         return (
             !this.busy && !this.matchedCards.includes(card) && card !== this.checkCard
         );
     }
 }
 
-const game = new BoardGame(18);
+const game = new BoardGame(gameTime);
 game.start();
 
-
-
-
-/*------ BUBBLE SORT
-let bubbleSort = (yourArray) => {
-   let arrSize = yourArray.length; //this will give you the first N
-   let swapped;
-   do {
-      swapped = false;
-      for(let i = 0; i < arrSize; i++){
-          if(yourArray[i] > yourArray[i + 1]){
-            //where the swap happens
-            let tmp = yourArray[i];
-             yourArray[i] = yourArray[i+1];
-             yourArray[i+1] = tmp;
-             swapped = true;
-          }
-      }
-   } while(swapped);
-   return yourArray;
-} -----*/
