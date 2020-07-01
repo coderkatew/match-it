@@ -246,7 +246,7 @@ h1 {
     width: 80%;
     display: inline-block;
     font-size: 35%;
-    margin-bottom: 10%;
+    margin-bottom: 12%;
 }
 
 #scores table {
@@ -287,7 +287,7 @@ footer {
 
 .social-links i {
   font-size: 180%;
-  margin: 1%;
+  margin: 0;
   padding: 0.5%;
   color: white;
 }
