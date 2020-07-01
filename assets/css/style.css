@@ -20,12 +20,11 @@
   font-family: 'Wendy One', sans-serif;
   font-size: 200%;
   color: aqua;
-  margin: 18%;
 }
 
 .nav-item {
   color: aqua;
-  margin: 0 5% 0 5%;
+  margin: 1% 5% 1% 5%;
 }
 
 .mobile-nav {
@@ -71,7 +70,7 @@ body {
   color: yellow;
 }
 
-#currentScore {
+#currentScorePanel {
     display: hidden;
     font-family: 'Press Start 2P';
     color: pink;
@@ -79,8 +78,17 @@ body {
     padding: 1% 0 1% 0;
 }
 
+#playerName {
+    width: 30%;
+    margin-bottom: 2%;
+}
+
 #playerForm {
     margin-bottom: 1%;
+}
+
+#playerForm label {
+    width: 100%;
 }
  
 .enter-name {
@@ -89,6 +97,26 @@ body {
     font-size: 70%;
     margin-bottom: 2%;
 }
+
+/* This glow animation from this tutorial: https://www.w3docs.com/snippets/css/how-to-create-flashing-glowing-button-using-animation-in-css3.html */
+@keyframes glowing {
+        0% {
+          background-color: #2ba805;
+          box-shadow: 0 0 5px #2ba805;
+        }
+        50% {
+          background-color: #49e819;
+          box-shadow: 0 0 20px #49e819;
+        }
+        100% {
+          background-color: #2ba805;
+          box-shadow: 0 0 5px #2ba805;
+        }
+      }
+
+#submit {
+        animation: glowing 1300ms infinite;
+      }
 
 /*-------------- Gameboard -----------------*/
 
@@ -102,7 +130,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
-  margin: 100px;
+  margin: 10%;
   justify-content: center;
   perspective: 500px;
 }
@@ -168,17 +196,16 @@ body {
 
 .about-text {
     color: white;
-    font-size: 120%;
+    font-size: 130%;
     font-family: 'Lato', sans-serif;  
     padding: 2%;
     margin: 0;
 }
 
 h1 {
- color: purple;
- font-family: 'Wendy One', sans-serif;
- margin: 2px;
-
+    color: purple;
+    font-family: 'Wendy One', sans-serif;
+    margin: 2px;
 }
 
 /*-------------- Subscribe to Newsletter -----------------*/
@@ -189,7 +216,6 @@ h1 {
     text-align: center;
     padding: 5%;
     margin: 0 0 5% 0;
-    border-radius: 10px;
     font-family: 'Lato', sans-serif;  
     color: white;
     font-size: 120%;
@@ -197,12 +223,12 @@ h1 {
 
 #email-text {
     padding: 5%;
-    margin: 10%;
     font-size: 120%;
 }
 
 #email-subscribe {
      font-family: 'Bungee Inline';
+     margin: 2%;
 }
 
 #enter-email {
@@ -237,30 +263,16 @@ h1 {
   border: 2px solid yellow;
 }
 
-/*------------ Feedback Screens -----------*/
-
-.feedback-overlay {
-  display: none;
-  position: fixed;
-  width:100%;
-  padding:10%;
-  text-align: center;
-  justify-content: center;
-  z-index: 2500;
-  background-color: black;
-  font-family: 'Bungee Inline';
-  font-size: 350%;
-  color: yellow;
-}
-
 /*-------------- Footer -------------*/
 
 footer {
   height: 70px;
   width: 100%;
   margin: 0;
+  padding: 1%;
   background-color: black;
   position: fixed;
+  align-content: center;
   bottom: 0;
   left: 0;
 }
@@ -275,15 +287,16 @@ footer {
 
 .social-links i {
   font-size: 180%;
-  margin-top: 1%;
+  margin: 1%;
   padding: 0.5%;
   color: white;
 }
 
 /*--------------- Media Queries --------------*/
 
-@media only screen and (max-width:950px)
-{
+@media only screen and (max-width:950px) {
+
+/* MQ - NAV MENU */
 #desktop-nav {
     display: none;
 }
@@ -298,13 +311,18 @@ footer {
     font-size: 100%;
 }
 
+/* MQ - START GAME FORM */
+
 #playerPanel {
   display: block;
   position: fixed;
+  width: 100%;
   padding: 50% 2% 0 0;
   font-size: 100%;
   height: 100%;
 }
+
+/* MQ - SCOREBOARD */
 
 #scores {
     width: 95%;
@@ -312,37 +330,56 @@ footer {
     padding: 0;
 }
 
+/* MQ - SUBSCRIBE SECTION */
+
+#subscribe {
+    margin-bottom: 70px;
+    padding: 6%;
+    border: none;
+}
 
 #enter-email {
     padding: 5%;
 }
 
 #email-text {
+    font-size: 100%;
+    padding: 0;
     margin: 0;
 }
 
-#subscribe {
-    margin: 0 0 10% 0;
-    padding: 1%;
-    border: none;
+#subscribe-submit {
+    margin-top: 2%;
 }
 
+/* MQ - GAMEBOARD */
+
 .game-board {
-  grid-gap: 1.5%;
-  margin: 20% 0 20% 0;
-  padding: 2%;
+    grid-gap: 1.5%;
+    margin: 25% 0 25% 0;
+    padding: 2%;
 }
 
 .time-turns {
   padding: 1%;
 }
 
+/* MQ - ABOUT SECTION */
+
+#about {
+    padding-top: 15%;
+}
+
+/* MQ - FOOTER */
+
 footer {
     max-width: 100%;
     max-height: 50px;
-    padding: 0;
-    margin-top: 2%;
-    text-align: center;
+}
+
+.social-links {
+  margin: 0;
+  padding:0;
 }
 
 }

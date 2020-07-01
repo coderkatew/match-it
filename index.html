@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="author" content="Kate Walsh" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="HTML,CSS,JavaScript,Code Institute,Milestone2" />
+	<meta name="author" content="Kate Walsh" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="HTML,CSS,JavaScript,Code Institute,Milestone2" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.0/sandstone/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
@@ -13,47 +14,48 @@
 	<link rel="icon" href="assets/images/favicon.png" sizes="16x16" type="image/png">
 	<title>Match It</title>
 </head>
+
 <body>
-<header>
-	<nav class="navbar navbar-expand navbar-bg fixed-top">
-		<div id="desktop-nav" class="desktop-nav">
-			<ul class="navbar-nav mr-auto">
-				<li id="logo">Match It</li>
-				<li class="nav-item mr-2">
-					<a class="nav-link" href="index.html">
-						<p>Play</p>
-					</a>
-				</li>
-				<li class="nav-item mr-2">
-					<a class="nav-link" href="#about">
-						<p>About</p>
-					</a>
-				</li>
-				<li class="nav-item mr-2">
-					<a class="nav-link" href="#subscribe">
-						<p>Subscribe</p>
-					</a>
-				</li>
-			</ul>
-		</div>
-		<!-- The user will see the mobile-nav navbar when they're viewing the website on a mobile device. 
+	<header>
+		<nav class="navbar navbar-expand navbar-bg fixed-top">
+			<div id="desktop-nav" class="desktop-nav">
+				<ul class="navbar-nav mr-auto">
+					<li id="logo">Match It</li>
+					<li class="nav-item mr-2">
+						<a class="nav-link" href="index.html">
+							<p>Play</p>
+						</a>
+					</li>
+					<li class="nav-item mr-2">
+						<a class="nav-link" href="#about">
+							<p>About</p>
+						</a>
+					</li>
+					<li class="nav-item mr-2">
+						<a class="nav-link" href="#subscribe">
+							<p>Subscribe</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- The user will see the mobile-nav navbar when they're viewing the website on a mobile device. 
         Menu options are represented with icons to save space and keep the UI simple -->
-		<div id="mobile-nav" class="mobile-nav">
-			<ul class="navbar-nav mr-auto">
-                <li id="logo-mobile">Match It</li>
-				<li class="nav-item">
-					<a class="nav-link" href="index.html"><i class="fas fa-gamepad" aria-hidden="true"></i></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#about"><i class="fas fa-info" aria-hidden="true"></i></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-item nav-link" href="#subscribe"><i class="fas fa-edit" aria-hidden="true"></i></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-</header>
+			<div id="mobile-nav" class="mobile-nav">
+				<ul class="navbar-nav mr-auto">
+					<li id="logo-mobile">Match It</li>
+					<li class="nav-item">
+						<a class="nav-link" href="index.html"><i class="fas fa-gamepad" aria-hidden="true"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#about"><i class="fas fa-info" aria-hidden="true"></i></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#subscribe"><i class="fas fa-edit" aria-hidden="true"></i></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 	<div id="playerPanel" class="d-none">
 		Match It
 		<form id="playerForm">
@@ -62,8 +64,8 @@
 			<input type="text" id="playerName" name="playerName" required />
 			<input type="submit" id="submit" value="Play!" />
       </form>
-            <div id="currentScore">Score: <span id="current-score">0</span>
-            </div>
+			<div id="currentScorePanel">Score: <span id="current-score">0</span>
+			</div>
 			<div id="scores"></div>
 	</div>
 	<div id="gameboard-container">
@@ -76,25 +78,14 @@
 			<!-- HTML for cards will be inserted here with insertAdjacentHTML -->
 		</div>
 	</div>
-	<div id="game-over" class="feedback-overlay">
-		Game Over!
-		<span class="overlay-text-small">Click to play again</span>
-	</div>
-	<div id="game-win" class="feedback-overlay">
-		Congratulations, You've Won!
-		<span class="overlay-text-small">Click to play again</span>
-	</div>
 	<div id="about">
 		<h1>Memory Game</h1>
 		<p class="about-text">
-			Memory games serve to exercise the brain’s memory function. When memory games are played
-			consistently, it is equivalent to exercising the brain to make it more alert and sharp.
-			You can do this by playing memory games for 30 minutes to one hour every day. It doesn't matter how long you
-			play the games for. The key is to remember to play them consistently.
-		</p>
-		<p class="about-text">
-			Memory games will also improve concentration and focus in such a way that it will be improved as you go
-			along. Some key benefits of memory games include exercising the brain, preventing memory-related illnesses and enhancing
+			Memory games exercise the brain’s memory function. When memory games are played
+			consistently, it is like exercising the brain to make it more alert and sharp.
+			You can do this by playing memory games for 30 minutes to one hour every day. The key is to remember to play
+			them consistently. Some benefits of memory games include exercising the brain, preventing memory-related
+			illnesses and enhancing
 			other brain functions.
 		</p>
 	</div>
@@ -103,7 +94,7 @@
 		<span id="email-text">Subscribe to our newsletter to be the first to hear about new game releases!</span>
 		<form id="email-subscribe">
 			<label for="email">
-            <span class="enter-email">Enter email address</span></label>
+            <span class="enter-email">Enter email address:</span></label>
 			<input type="email" id="email" name="email" required />
 			<input type="button" id="subscribe-submit" value="Subscribe!" />
       </form>

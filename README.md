@@ -188,7 +188,8 @@ About - The text for the 'About' section was adapted from [this article](https:/
 
 
 ### Media
-All of the images used for the cards in this game were purchased from [iStock by Getty Images](https://www.istockphoto.com/ie).<br><br>
+* All of the images used for the cards in this game were purchased from [iStock by Getty Images](https://www.istockphoto.com/ie).
+* The audio file for the 'pop' sound effect was purchased from [Pond5](https://www.pond5.com/sound-effects/item/35145618-single-bubble-pop).<br><br>
 
 ### Acknowledgements
 I learned the key concepts of HTML, CSS and Javascript in the Code Institute course materials and read further material in [Eloquent Javascript](https://eloquentjavascript.net/) and [Mozilla Developer Network](https://developer.mozilla.org/en-US/docs/Web/JavaScript) to support my learning and improve my knowledge of Javascript. <br>
@@ -197,5 +198,6 @@ I found information for some specific features used in the game from the followi
 * [Inserting HTML to create the game cards](https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML)
 * [Fisher-Yates Shuffle Algorithm to shuffle the cards array](https://medium.com/@qjawe/js-shuffle-cards-or-any-elements-with-the-fisher-yates-shuffle-algorithm-b70750c497d5)
 * [Setting the countdown timer](https://www.w3schools.com/js/js_timing.asp)
-* [Grid layout and properties](https://www.w3schools.com/css/css_grid.asp)<br>
+* [Grid layout and properties](https://www.w3schools.com/css/css_grid.asp)
+* [Play button glow effect](https://www.w3docs.com/snippets/css/how-to-create-flashing-glowing-button-using-animation-in-css3.html)<br>
 I used resources like [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) for help with troubleshooting smaller during the project, as well as support from Code Institute tutors and guidance from my mentor.

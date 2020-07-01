@@ -198,11 +198,9 @@ class BoardGame {
 
 
     subscribeButton() {
-        //Used button here temporarily rather than input as input caused the page to refresh and the game to restart
-        document.getElementById("email-subscribe").addEventListener("click", function () {
-            let button = document.getElementById('subscribe-submit');
-            button.value = 'Success!';
-            button.disabled = true;
+        document.getElementById("subscribe-submit").addEventListener("click", function () {
+            document.getElementById('email-subscribe').remove();
+            document.getElementById('email-text').innerText ="Thank you. You are now subscribed!"; // Hides the form and displays a confirmation message to the user
         });
     }
 
@@ -211,7 +209,7 @@ class BoardGame {
             this.timeLeft--;
             this.timer.innerText = this.timeLeft;
             if (this.timeLeft === 0) 
-                this.gameOver(); //Ends game when countdown reaches 0
+                this.gameOver(); // Ends game when countdown reaches 0
         }, 1000);
     }
 
@@ -228,8 +226,9 @@ class BoardGame {
     }
 
     gameOver() {
-        let gameEnd = document.getElementById('playerPanel');
-        gameEnd.innerText = "GAME OVER!";
+        this.renderScores();
+        this.boardPanel.classList.toggle("d-none", true);
+        this.playerPanel.classList.toggle("d-none", false);
         this.gameFinished();
     }
 
@@ -241,6 +240,7 @@ class BoardGame {
     /**
        * Updates the scores based on the last played game after game has been won
        */
+
     updateScores() {
         // Disable the previous current played game 
         let index = this.configuration.scores.findIndex((score) => score.currentPlayer === true);
@@ -259,6 +259,7 @@ class BoardGame {
         /**
            * Sorts the scores by comparing values to include the new score - the scores on the board will be positioned high to low
            */
+
         this.configuration.scores.sort((a, b) => {
             if (a.flips < b.flips) {
                 return -1;
@@ -294,6 +295,7 @@ class BoardGame {
         * 
         * @param {Element} card The card element
         */
+       
     turnCard(card) {
         if (this.isCardFacedDown(card)) {
             // Increases the number of turns 
@@ -363,6 +365,7 @@ class BoardGame {
        * Fisher-Yates algorithm shuffles through the card array swapping 
        * the last element with a random element from the array
        */
+
     shuffleDeck() {
         for (let i = this.fullDeck.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1));
