@@ -25,16 +25,24 @@
 
 .nav-item {
   color: aqua;
+  margin: 0 5% 0 5%;
 }
 
 .mobile-nav {
   font-size: 100%;
   max-width: 100%;
   text-align: center;
-  opacity: 0.6;
 }
+
+#logo-mobile {
+  font-family: 'Bungee Inline';
+  font-size: 60%;
+  color: yellow;
+}
+
 .mobile-nav i {
-  padding: 0 5px 0 5px;
+  font-size: 200%;
+  color: aqua;
 }
 
 #mobile-nav {
@@ -53,8 +61,7 @@ body {
 #playerPanel {
   display: block;
   position: fixed;
-  margin: auto;
-  padding: 10%;
+  padding: 5%;
   text-align: center;
   justify-content: center;
   z-index: 1100; /* This specifies the stack order to ensure #playerPanel is displayed in front of the rest of the elements on screen */
@@ -62,11 +69,18 @@ body {
   font-family: 'Bungee Inline';
   font-size:350%;
   color: yellow;
-  height:100%
+}
+
+#currentScore {
+    display: hidden;
+    font-family: 'Press Start 2P';
+    color: pink;
+    font-size: 80%;
+    padding: 1% 0 1% 0;
 }
 
 #playerForm {
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
  
 .enter-name {
@@ -137,8 +151,6 @@ body {
   border-radius: 2px;
 }
 
-
-
 .card-img,
 .card-back {
   max-width: 100px; 
@@ -205,9 +217,10 @@ h1 {
 #scores {
     color: yellow;
     border: 2px solid yellow;
-    width: 100%;
-    display: block;
-    font-size:50%;
+    width: 80%;
+    display: inline-block;
+    font-size: 35%;
+    margin-bottom: 10%;
 }
 
 #scores table {
@@ -282,7 +295,7 @@ footer {
 }
 
 .nav-item {
-    font-size: 1.8em;
+    font-size: 100%;
 }
 
 #playerPanel {
@@ -290,7 +303,15 @@ footer {
   position: fixed;
   padding: 50% 2% 0 0;
   font-size: 100%;
+  height: 100%;
 }
+
+#scores {
+    width: 95%;
+    font-size: 70%;
+    padding: 0;
+}
+
 
 #enter-email {
     padding: 5%;

@@ -40,6 +40,7 @@
         Menu options are represented with icons to save space and keep the UI simple -->
 		<div id="mobile-nav" class="mobile-nav">
 			<ul class="navbar-nav mr-auto">
+                <li id="logo-mobile">Match It</li>
 				<li class="nav-item">
 					<a class="nav-link" href="index.html"><i class="fas fa-gamepad" aria-hidden="true"></i></a>
 				</li>
@@ -59,8 +60,10 @@
 			<label for="playerName">
             <span class="enter-name">Enter player name:</span></label>
 			<input type="text" id="playerName" name="playerName" required />
-			<input type="submit" id="submit" value="Start Game!" />
+			<input type="submit" id="submit" value="Play!" />
       </form>
+            <div id="currentScore">Score: <span id="current-score">0</span>
+            </div>
 			<div id="scores"></div>
 	</div>
 	<div id="gameboard-container">

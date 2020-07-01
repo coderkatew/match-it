@@ -75,7 +75,7 @@ class BoardGame {
             this.shuffleDeck(this.fullDeck);
             this.countDown = this.startCountDown();
             this.busy = false;
-        }, 700);
+        }, 500);
         this.hideCards();
         this.timer.innerText = this.timeLeft;
         this.turns.innerText = this.totalTurns;
@@ -147,6 +147,10 @@ class BoardGame {
         this.startGame();
     }
 
+    popSound() {
+        let audio = new Audio("assets/audio/pop.mp3");
+        audio.play();
+    }
     /**
      * Renders the card element using the image name passed as a parameter
      * @param {String} imageName 
@@ -155,12 +159,12 @@ class BoardGame {
     renderCard(imageName) {
         return `<div class="card">
                     <div class="card-back all-cards">
--                        <img class="card-img" src="assets/images/card-back.jpg"  alt="Hidden card">
--                    </div> 
--                    <div class="card-picture all-cards">
--                        <img class="card-value card-img" src="assets/images/${imageName}" alt="Picture card">
--                    </div>
--                </div>`;
+                        <img class="card-img" src="assets/images/card-back.jpg"  alt="Hidden card">
+                    </div> 
+                    <div class="card-picture all-cards">
+                        <img class="card-value card-img" src="assets/images/${imageName}" alt="Picture card">
+                    </div>
+                </div>`;
     }
 
     /**
@@ -181,6 +185,7 @@ class BoardGame {
         cards.forEach((card) => {
             card.addEventListener("click", () => {
                 this.turnCard(card);
+                this.popSound();
             });
         });
         this.fullDeck = cards; // Declares a new array of HTML cards for the game
@@ -190,8 +195,8 @@ class BoardGame {
         let cards = Array.from(document.getElementsByClassName("card"));
         cards.forEach((card) => card.remove());
     }
-    
-     
+
+
     subscribeButton() {
         //Used button here temporarily rather than input as input caused the page to refresh and the game to restart
         document.getElementById("email-subscribe").addEventListener("click", function () {
@@ -199,15 +204,14 @@ class BoardGame {
             button.value = 'Success!';
             button.disabled = true;
         });
-    } 
+    }
 
     startCountDown() {
         return setInterval(() => {
             this.timeLeft--;
             this.timer.innerText = this.timeLeft;
-            if (this.timeLeft === 0) {
+            if (this.timeLeft === 0) 
                 this.gameOver(); //Ends game when countdown reaches 0
-            }
         }, 1000);
     }
 
@@ -218,12 +222,19 @@ class BoardGame {
         this.showPlayerPanel();
     }
 
+    currentScore() {
+        let currentScore = document.getElementById('current-score');
+        currentScore.innerText = this.totalTurns;
+    }
+
     gameOver() {
-        document.getElementById('game-over').classList.add('visible');
+        let gameEnd = document.getElementById('playerPanel');
+        gameEnd.innerText = "GAME OVER!";
         this.gameFinished();
     }
 
     gameWin() {
+        this.currentScore();
         this.updateScores();
         this.gameFinished();
     }
@@ -245,10 +256,10 @@ class BoardGame {
             currentPlayer: true
         });
 
-      /**
-         * Sorts the scores by comparing values to include the new score - the scores on the board will be positioned high to low
-         */ 
-       this.configuration.scores.sort((a, b) => {
+        /**
+           * Sorts the scores by comparing values to include the new score - the scores on the board will be positioned high to low
+           */
+        this.configuration.scores.sort((a, b) => {
             if (a.flips < b.flips) {
                 return -1;
             }
@@ -278,6 +289,7 @@ class BoardGame {
             card.classList.remove('visible');
         });
     }
+
     /**
         * 
         * @param {Element} card The card element
@@ -322,7 +334,7 @@ class BoardGame {
     cardMatcher(card1, card2) {
         // Adds the cards to the matchedCards array to track progress
         this.matchedCards.push(card1);
-        this.matchedCards.push(card2); 
+        this.matchedCards.push(card2);
         setTimeout(() => {
             card1.classList.add("invisible");
             card2.classList.add("invisible");
@@ -347,10 +359,10 @@ class BoardGame {
         return card.getElementsByClassName("card-value")[0].src;
     }
 
-   /**
-      * Fisher-Yates algorithm shuffles through the card array swapping 
-      * the last element with a random element from the array
-      */  
+    /**
+       * Fisher-Yates algorithm shuffles through the card array swapping 
+       * the last element with a random element from the array
+       */
     shuffleDeck() {
         for (let i = this.fullDeck.length - 1; i > 0; i--) {
             let randomIndex = Math.floor(Math.random() * (i + 1));
