@@ -10,9 +10,9 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 # Project Outline
 
-1. [Strategy and Scope](#Strategy)
+1. [Strategy and Scope](#strategy-and-scope)
 
-2. [Structure and Skeleton](#structureandSkeleton)
+2. [Structure and Skeleton](#structure-and-skeleton)
 
 3. [Surface](#surface)
 
@@ -20,7 +20,7 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 4. [Deployment](#deployment)
 
-6. [Project Credits](#project)
+6. [Project Credits](#project-credits)
 
 <br><br>
 
@@ -78,7 +78,7 @@ The desktop and mobile wireframes for this project are located in the 'wireframe
 <br><br>
 <img src="assets/images/readme/start-game.png" style="margin: 0;">
 
-**Navbar** - There are two version of the navbar (one for desktop and one for mobile) that were created using Bootstrap. The navigation panel allows users to jump quickly to specific sections on the page.
+**Navbar** - There are two versions of the navbar (one for desktop and one for mobile) that were created using Bootstrap. The navigation panel allows users to jump quickly to specific sections on the page.
 <br><br>
 <img src="assets/images/readme/nav-desktop.png" style="margin: 0;">
 <br><br>
@@ -106,9 +106,9 @@ The desktop and mobile wireframes for this project are located in the 'wireframe
 
 **Variation of Themes**  - The current theme of the site is geared more towards children than adults, so I'd like create multiple themes so that users can select a theme when they first arrive on the site and their preference would be saved for the next time they visit. I'd also like to add customizable user profiles to give users a more personalized experience.
 
-**Audio and Text Versions** - I'd like to incorporate different media such as audio, text and sound effects into the cards so that the game template could be repurposed for language games. For example, the user selects Card1 which is an audio card with a spoked word or sound effect and has to match it with a text or picture card.
+**Audio and Text Versions** - I'd like to incorporate different media such as audio, text and sound effects into the cards so that the game template could be repurposed for language games. For example, the user selects Card 1 which is an audio card with a spoken word or sound effect and has to match it with a text or picture card.
 
-**More Levels of Difficulty** - I'd like to give users the option to adjust the length of time and/or number or cards for a game (or simply choose different levels) so that they can increase the difficulty level as their memory skills improve, or make it easier if they are finding it too difficult.
+**More Levels of Difficulty** - I'd like to give users the option to adjust the length of time and/or number of cards for a game (or simply choose different levels) so that they can increase the difficulty level as their memory skills improve, or make the game easier if they are finding it too difficult.
 <br><br>
 
 
@@ -154,7 +154,7 @@ This project uses [Font Awesome](https://fontawesome.com/) to present icons thro
 ## Surface
 
 ### Game Design
-The look and feel of Match It is loosely inspired by retro video games such as Pac-Man and Sonic the Hedgehog. It has a dark background color theme with bright colors for text and borders for contrast. <br>
+The look and feel of Match It was loosely inspired by retro video games such as Pac-Man and Sonic the Hedgehog. It has a dark background color with brightly colored text and borders used for contrast. <br>
 The Google font [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P#about) was created based on 1980s arcade game font styles and [Bungee Inline](https://fonts.google.com/specimen/Bungee+Inline#about) is a chunky statement font used for the Match It logo.<br>
 The website favicon ('M') is taken directly from the game logo so that players develop a familiarity with it and to promote a consistent brand experience that could be built on later when the range of games is extended and the game creator has built up a following.<br>
 Icons are used instead of text labels for the nav bar items in the mobile version of the website so that the menu is neat and simple. The game interface is relatively minimal to limit distractions for the player and focus on the gameboard and cards as it is a time-based game. <br>
@@ -217,3 +217,6 @@ I found information for some specific features used in the game from the followi
 <br>
 
 I used resources like [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) for help with troubleshooting smaller during the project, as well as support from Code Institute tutors and guidance from my mentor.
+
+<br><br><br>
+[Back to Top](#match-it)

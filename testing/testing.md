@@ -14,9 +14,9 @@
 ## Automated Testing
 
 ### Validation Programs
-* The project HTML file been tested using [W3C Markup Validator](https://validator.w3.org/). See results [here]().
-* The project CSS file has been tested using [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/). See results [here]().
-* The project Javascript file has been tested using [JSHint](https://jshint.com/). See results [here]().
+* The project HTML file been tested using [W3C Markup Validator](https://validator.w3.org/). See results [here](validation/html-validation.pdf).
+* The project CSS file has been tested using [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/). See results [here](validation/css-validation.pdf).
+* The project Javascript file has been tested using [JSHint](https://jshint.com/). There are 38 warnings related to browsers. See results [here](validation/js-validation.pdf).
 
 ### Jasmine Testing
 The files used to carry out Jasmine testing for this project can be found here:
@@ -56,8 +56,8 @@ The audio file has been trimmed but this needs a more permanent fix. The full ca
 * Open the [Match It website](https://coderkatew.github.io/match-it/).
 * Enter a player name and click 'Play!'.
 * Game screen is displayed.
-Method 1: Click or tap on About at the top of the page (or the 'i' icon for mobile). The view will jump to the About section of the page. The About section contains some information about memory games and imrpoving memory skills.
-Method 2: Scroll down the page to the About section. The About section contains some information about memory games and imrpoving memory skills.
+<br>Method 1: Click or tap on About at the top of the page (or the 'i' icon for mobile). The view will jump to the About section of the page. The About section contains some information about memory games and imrpoving memory skills.
+<br>Method 2: Scroll down the page to the About section. The About section contains some information about memory games and imrpoving memory skills.
 
 - Result: Both methods work as described. There's no interaction with the text section iself but the navigation is working correctly.<br>
 
@@ -78,7 +78,7 @@ The scoreboard is displayed at the bottom of the screen for some narrower screen
 
 4. *As a player I want a game that is intuitive and easy to use so that I can learn how to use it quickly.*<br>
 
-**Test and Result**
+**Test and Result**<br>
 Note: The result of this test may vary for different users so the goal for this test is to determine that the game works correctly and provides a consistent and smooth user experience.
 * Open the [Match It website](https://coderkatew.github.io/match-it/).
 * Enter a player name and click 'Play'.
@@ -90,7 +90,7 @@ Note: The result of this test may vary for different users so the goal for this 
 * Consider: Is it clear how the game works?
 * Consider: Are the game features and interactions consistent in style and design?
 
-- Result: The game works as described, UI elements are clearly laid out and colors used for association between similar features. 
+- Result: The game works as described, UI elements are clearly laid out and color is used to group similar features. 
 The green glow color fills the 'Play! button in Firefox and on mobile so it doesn't match the intended design but otherwise the game displays and functions the same way in both browsers.<br>
 
 5. *As a player I want a game that is quick to play and mobile-friendly so that I can play it on my smartphone during my commute.*<br>
@@ -109,21 +109,22 @@ The green glow color fills the 'Play! button in Firefox and on mobile so it does
 The game works as described on mobile and most games finish before the time is up.
 
 6. *As the game creator and site owner, I want to build my subscriber list so that I can promote new games that I make.*<br>
-Note: The form on the site is not currently set up to post the details submitted so this test is to determine that the subscribe form is easy to find and clearly presented on screen.<br>
+<br>
 
-**Test and Result**
+**Test and Result**<br>
+Note: The form on the site is not currently set up to post the details submitted so this test is to determine that the subscribe form is easy to find and clearly presented on screen.
 * Open the [Match It website](https://coderkatew.github.io/match-it/).
 * Enter a player name and click 'Play'.
 * Game screen is displayed.
-Method 1: Click or tap on Subscribe at the top of the page (or the 'i' icon for mobile). The view will jump to the Subscribe section of the page. Enter an email address in the email address field. Click or tap Subscribe. A confirmation message will be displayed.
-Method 2: Scroll down the page to the Subscribe  section. Enter an email address in the email address field. Click or tap Subscribe. A confirmation message will be displayed.
+<br>Method 1: Click or tap on Subscribe at the top of the page (or the 'i' icon for mobile). The view will jump to the Subscribe section of the page. Enter an email address in the email address field. Click or tap Subscribe. A confirmation message will be displayed.
+<br>Method 2: Scroll down the page to the Subscribe  section. Enter an email address in the email address field. Click or tap Subscribe. A confirmation message will be displayed.
 
 - Result: This works as described for both methods. The message 'Thank you. You are now subscribed!' is displayed when the form has been submitted.<br>
 
 ## Bugs
 
 ## Resolved Bugs
-I encountered the following bugs during development of this project:
+I encountered the following notable bugs during development of this project:
 
 **Issue 1**
 * Problem: Game cards were displayed at a very small size and the grid didn't seem to resize to fit them.
@@ -144,7 +145,7 @@ I encountered the following bugs during development of this project:
 ## Unresolved Bugs
 
 **Issue 1**
-* Problem: Partial card grid is display on screen for some screens wider than 2500px.
+* Problem: Partial card grid is displayed on screen for some screens wider than 2500px.
 * Cause: CSS formatting and media queries.
 * Solution: Extend the media queries section in the CSS file to include more device sizes.
 
@@ -154,3 +155,5 @@ I encountered the following bugs during development of this project:
 * Solution: Stop each file from playing as soon as another card is clicked and play the audio for that card only.
 
 <br><br><br>
+
+[Back to Top](#project-testing)
