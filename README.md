@@ -57,7 +57,7 @@ The game is short and mobile-friendly so it's ideal for playing on your commute 
 
 ### How to Play
 1. Open the [Match It website](https://coderkatew.github.io/match-it/).
-2. Enter a player name and click 'Start Game'.
+2. Enter a player name and click 'Play!'.
 3. Click or Tap on cards on the game screen that is presented to find matches.
 * When a pair of cards have been matched, they are no longer displayed in the grid of cards. 
 * Each time a card is clicked, the value of 'Turns' (the turn counter) increases by +1.
@@ -74,17 +74,31 @@ The desktop and mobile wireframes for this project are located in the 'wireframe
 ## Features
 
 ### Existing Features
-**Start Game Screen** - This is the first screen presented to the user. The user is prompted (with onscreen text instructions) to enter their name and then click the Start Game button to start the game.
+**Start Game Screen** - This is the first screen presented to the user. The user is prompted (with onscreen text instructions) to enter their name and then click the 'Play!' button to start the game.
+<br><br>
+<img src="assets/images/readme/start-game.png" style="margin: 0;">
 
 **Navbar** - There are two version of the navbar (one for desktop and one for mobile) that were created using Bootstrap. The navigation panel allows users to jump quickly to specific sections on the page.
+<br><br>
+<img src="assets/images/readme/nav-desktop.png" style="margin: 0;">
+<br><br>
+<img src="assets/images/readme/nav-mobile.png" style="margin: 0;">
 
 **Main Gameboard** - The gameboard displays 16 cards (with the backs of the cards visible to the user). The game timer on the top left of the gameboard counts down from 120 seconds and the 'Turns' counter increases by +1 each time the user clicks on a card. When the user clicks on a card, the card turns and the picture side of the card is presented.
+<br><br>
+<img src="assets/images/readme/game-screen-2.png" style="margin: 0;">
 
 **About Section** - The about section is text only and includes some information on the benefits of playing memory games.
+<br><br>
+<img src="assets/images/readme/about.png" style="margin: 0;">
 
 **Subscribe Section** - This is a simple form for the user to submit their email address in order to subscribe to emails about new games. The form on the site is not currently set up to post the details submitted but I would like to include this in the next phase of the project.
+<br><br>
+<img src="assets/images/readme/subscribe.png" style="margin: 0;">
 
-**Feedback screen** - A feedback screen is shown to the user at the end of the game (when they've either matched all pairs or the countdown has finished). They are presented with their final score and the option to play again.
+**Feedback screen** - A feedback screen (similar to the Start Game screen) is shown to the user at the end of the game (when they've either matched all pairs or the countdown has finished). They are presented with the scoreboard, their final score, and the option to play again.
+<br><br>
+<img src="assets/images/readme/feedback.png" style="margin: 0;">
 <br><br>
 
 ## Features Left to Implement
@@ -200,4 +214,6 @@ I found information for some specific features used in the game from the followi
 * [Setting the countdown timer](https://www.w3schools.com/js/js_timing.asp)
 * [Grid layout and properties](https://www.w3schools.com/css/css_grid.asp)
 * [Play button glow effect](https://www.w3docs.com/snippets/css/how-to-create-flashing-glowing-button-using-animation-in-css3.html)<br>
+<br>
+
 I used resources like [Stack Overflow](https://stackoverflow.com/) and [W3Schools](https://www.w3schools.com/) for help with troubleshooting smaller during the project, as well as support from Code Institute tutors and guidance from my mentor.
